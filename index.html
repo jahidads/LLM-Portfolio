@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jahid Hasan | LLM Engineer</title>
+    <link rel="icon" type="image/x-icon" href="jahid (2)-modified.png">
+    <meta name="description" content="Portfolio website of Jahid hasan - Bangladeshihacker, LLM Engineer & O'Reilly Author. Building innovative AI products and helping companies leverage large language models.">
+    <style>
+        /* --- Google Font --- */
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+        /* --- CSS Variables --- */
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1E1E1E;
+            --primary-text-color: #F5F5F5;
+            --secondary-text-color: #A8A8A8;
+            --border-color: #2e2e2e;
+            --primary-accent: #6A3FF4;
+            --secondary-accent: #10B981;
+            --nav-height: 72px;
+        }
+
+        body.light-theme {
+            --bg-color: #F5F5F5;
+            --surface-color: #FFFFFF;
+            --primary-text-color: #121212;
+            --secondary-text-color: #555555;    
+            --border-color: #e0e0e0;
+        }
+
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        body.mobile-nav-open {
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            scroll-margin-top: var(--nav-height);
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 1rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+
+        p {
+            color: var(--secondary-text-color);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--primary-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        /* --- Header & Navigation --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            background-color: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        body.light-theme .main-header {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .main-nav a {
+            color: var(--secondary-text-color);
+            padding: 0.5rem 0.75rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .main-nav a.active {
+            color: var(--primary-text-color);
+            background-color: var(--surface-color);
+        }
+        
+        .main-nav a:hover:not(.active) {
+            color: var(--primary-text-color);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--secondary-text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary-text-color);
+            background-color: var(--surface-color);
+        }
+
+        .theme-toggle .icon-moon { display: block; }
+        .theme-toggle .icon-sun { display: none; }
+        body.light-theme .theme-toggle .icon-moon { display: none; }
+        body.light-theme .theme-toggle .icon-sun { display: block; }
+        
+        .nav-open-btn {
+            display: none; /* Hidden on desktop */
+            background: none;
+            border: none;
+            color: var(--primary-text-color);
+            cursor: pointer;
+        }
+        
+        .nav-close-btn {
+            display: none; /* Hidden on desktop */
+        }
+        
+        /* --- Hero Section --- */
+        #home {
+            padding-top: calc(var(--nav-height) + 4rem);
+            text-align: center;
+        }
+
+        .hero-intro img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-intro p {
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+        
+        .hero-highlights {
+            list-style: none;
+            max-width: 550px;
+            margin: 0 auto 2.5rem auto;
+            text-align: left;
+        }
+        
+        .hero-highlights li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .hero-highlights .icon {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .hero-actions, .hero-socials {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-accent);
+            color: #fff;
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 4px 20px rgba(106, 63, 244, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-accent);
+            color: #fff;
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        .hero-socials a {
+            color: var(--secondary-text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .hero-socials a:hover {
+            color: var(--primary-text-color);
+        }
+
+        .trusted-by {
+            border-top: 1px solid var(--border-color);
+            padding-top: 4rem;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .trusted-by p {
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+        
+        .logos-marquee {
+            white-space: nowrap;
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+        
+        .logos-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        .logo-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 40px;
+            filter: grayscale(1) opacity(0.6);
+            transition: filter 0.3s;
+        }
+        
+        .logo-item:hover {
+            filter: grayscale(0) opacity(1);
+        }
+
+        .logo-item svg {
+            height: 25px;
+            fill: var(--secondary-text-color);
+        }
+        
+        @keyframes marquee {
+            from { transform: translateX(0%); }
+            to { transform: translateX(-100%); }
+        }
+
+        /* --- About Section --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 24px;
+        }
+        
+        .about-contact ul {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .about-contact li {
+            margin-bottom: 1rem;
+        }
+        
+        .about-contact a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--secondary-text-color);
+            font-weight: 500;
+        }
+        
+        .about-contact a:hover {
+            color: var(--primary-text-color);
+        }
+
+        /* --- Services & Projects Section --- */
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 4rem;
+        }
+        
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .item-card {
+            background-color: var(--surface-color);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-accent);
+        }
+        
+        .item-card .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        #services .item-card .icon-wrapper { background-color: rgba(106, 63, 244, 0.1); color: var(--primary-accent); }
+        #projects .item-card .icon-wrapper { background-color: rgba(16, 185, 129, 0.1); color: var(--secondary-accent); }
+
+        .item-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-text-color);
+        }
+        
+        .item-card p {
+            font-size: 0.95rem;
+        }
+
+        .item-card a {
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        /* --- ======== NEW: Video Marquee ======== --- */
+        #work {
+            padding: 6rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .video-marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .video-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 60s linear infinite;
+        }
+        
+        .video-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        .video-item {
+            flex: 0 0 auto;
+            width: 400px; /* Adjust width as needed */
+            margin: 0 1rem;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .video-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- Posts Section --- */
+        .post-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .post-card .post-meta {
+            font-size: 0.9rem;
+            color: var(--secondary-text-color);
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+        
+        /* --- Contact Section --- */
+        #contact .container {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        #contact p {
+            margin-bottom: 2rem;
+        }
+        
+        /* --- Footer Section --- */
+        .main-footer {
+            background-color: var(--surface-color);
+            padding: 4rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .footer-col-1 {
+            grid-column: span 2;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary-text-color);
+        }
+
+        .footer-col p {
+            font-size: 0.95rem;
+            max-width: 350px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-col a {
+            color: var(--secondary-text-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .footer-col a:hover {
+            color: var(--primary-accent);
+        }
+        
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--secondary-text-color);
+        }
+        
+        .footer-socials {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-socials a {
+            color: var(--secondary-text-color);
+        }
+
+        .footer-socials a:hover {
+            color: var(--primary-text-color);
+        }
+
+        /* --- Animations --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .item-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-col-1 { grid-column: span 2; }
+            
+            .main-nav {
+                position: fixed; top: 0; left: 0;
+                width: 100%; height: 100vh;
+                background-color: var(--bg-color);
+                display: flex; flex-direction: column;
+                justify-content: center; align-items: center;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            body.mobile-nav-open .main-nav { transform: translateX(0); }
+            .main-nav ul { flex-direction: column; text-align: center; gap: 2rem; }
+            .main-nav a { font-size: 1.5rem; padding: 0.5rem 1rem; }
+            .nav-open-btn { display: block; }
+            .nav-close-btn {
+                display: block; position: absolute;
+                top: 1.5rem; right: 1.5rem;
+                background: none; border: none;
+                color: var(--primary-text-color);
+                font-size: 2.5rem; line-height: 1; cursor: pointer;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            section { padding: 4rem 0; }
+            .item-grid { grid-template-columns: 1fr; }
+            .hero-actions { flex-direction: column; }
+            .btn { width: 100%; text-align: center; }
+            .about-image { order: -1; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-col-1 { grid-column: span 1; }
+            .footer-bottom { flex-direction: column; gap: 1.5rem; }
+            .video-item { width: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#home" class="logo">
+                <img src="profile.png" alt="James Phoenix">
+            </a>
+            
+            <nav class="main-nav">
+                <button class="nav-close-btn" aria-label="Close menu">&times;</button>
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#work" class="nav-link">Work</a></li>
+                    <li><a href="#posts" class="nav-link">Posts</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+                <button class="nav-open-btn" aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <div class="hero-intro fade-in">
+                    <img src="profile.png" alt="Jahid Hasan">
+                    <h1>Hi, I'm Jahid Hasan</h1>
+                    <p>I'm a Bangladeshihacker, LLM Engineer & O'Reilly Author. I build innovative AI products and help companies leverage the power of large language models.</p>
+                </div>
+                <ul class="hero-highlights fade-in">
+                    <li><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg> Building solo products and focusing on entrepreneurship.</li>
+                    <li><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.5a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.106a.75.75 0 010 1.06l-1.768 1.768a.75.75 0 11-1.06-1.06l1.768-1.768a.75.75 0 011.06 0zM21.75 12a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h2.5a.75.75 0 01.75.75zM17.828 17.828a.75.75 0 01-1.06 0l-1.768-1.768a.75.75 0 111.06-1.06l1.768 1.768a.75.75 0 010 1.06zM12 21.75a.75.75 0 01-.75-.75v-2.5a.75.75 0 011.5 0v2.5a.75.75 0 01-.75.75zM5.106 18.894a.75.75 0 010-1.06l1.768-1.768a.75.75 0 011.06 1.06l-1.768 1.768a.75.75 0 01-1.06 0zM2.25 12a.75.75 0 01.75-.75h2.5a.75.75 0 010 1.5H3a.75.75 0 01-.75-.75zM6.172 6.172a.75.75 0 011.06 0l1.768 1.768a.75.75 0 11-1.06 1.06L6.172 7.232a.75.75 0 010-1.06z"></path></svg> Full-stack software engineer specializing in LLMs and growth marketing.</li>
+                    <li><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"></path></svg> Author of "Prompt Engineering for LLMs" (O'Reilly).</li>
+                    <li><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.58 3H5.42C4.1 3 3.13 4.21 3.35 5.47l1.79 9.92C5.35 16.5 6.33 17 7.21 17h9.58c.88 0 1.86-.5 2.07-1.61l1.79-9.92C20.87 4.21 19.9 3 18.58 3zM12 15c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path></svg> Working on innovative AI-powered SaaS products.</li>
+                </ul>
+                <div class="hero-actions fade-in">
+                    <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+                    <a href="#projects" class="btn btn-secondary">View My Projects</a>
+                </div>
+                <div class="hero-socials fade-in">
+                    <a href="https://github.com/jahidads"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg> GitHub</a>
+                    <a href="https://bd.linkedin.com/in/jahidads"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg> LinkedIn</a>
+                    <a href="https://facebook.com/jahidads1"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.405 24 24 23.408 24 22.674V1.326C24 .592 23.405 0 22.675 0"></path></svg> Facebook</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container about-grid fade-in">
+                <div class="about-text">
+                    <h2>Jahid Hasan</h2>
+                    <p>I'm passionate about creating innovative solutions that will shape the future. I specialize in utilizing cutting-edge technologies and data to develop products and services that will power the digital world of tomorrow.</p>
+                    <p>With my expertise in programming, machine learning, artificial intelligence, and data engineering, I strive to develop products and services that will revolutionize the way we interact with technology.</p>
+                    <p>I'm constantly pushing the boundaries of what is possible and dreaming up new ways to make our lives better using the power of technology.</p>
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Book a Free Consultation</a>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image">
+                        <img src="image/profile.jh-removebg-preview.png" alt="Jahid Hasan" style="max-width:100%;height:auto;">
+                    </div>
+                    <div class="about-contact">
+                        <ul>
+                            <li><a href="https://github.com/jahidads"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg> Follow on GitHub</a></li>
+                            <li><a href="https://bd.linkedin.com/in/jahidads"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path></svg> Follow on LinkedIn</a></li>
+                            <li><a href="https://www.x.com/@jh6463"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg> Follow on Twitter</a></li>
+                            <li><a href="https://www.instagram.com/jahidads"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8A3.6 3.6 0 0 0 20 16.4V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"></path></svg> Follow on Instagram</a></li>
+                            <li><a href="mailto:jahidads@yahoo.com"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg> jahidads@yahoo.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Software I've built</h2>
+                    <p>As a software engineer, I've designed and built a suite of powerful marketing tools to help businesses maximize their marketing efforts. With the right marketing tools, businesses can unlock their true potential and take their team to the next level.</p>
+                </div>
+                <div class="item-grid">
+                    <div class="item-card fade-in">
+                        <div class="icon-wrapper">🚀</div>
+                        <h3>BrandVisibility AI - AI Rank Tracker</h3>
+                        <p>Track brand rankings across AI search engines with comprehensive visibility analytics and time series tracking.</p>
+                        <a href="#">brandvisibility.ai</a>
+                    </div>
+                    <div class="item-card fade-in">
+                        <div class="icon-wrapper">🛠️</div>
+                        <h3>CursorDevKit - SaaS Boilerplate</h3>
+                        <p>A magical AI-powered, local-first boilerplate for modern web development with Next.js and Supabase.</p>
+                        <a href="#">cursordevkit.com</a>
+                    </div>
+                    <div class="item-card fade-in">
+                        <div class="icon-wrapper">🎓</div>
+                        <h3>Vexpower - EdTech Course Platform</h3>
+                        <p>Learn to be more data-driven with realistic training scenarios.</p>
+                        <a href="#">vexpower.com</a>
+                    </div>
+                    <div class="item-card fade-in">
+                        <div class="icon-wrapper">📈</div>
+                        <h3>SingularityDigital - Industry SEO Data</h3>
+                        <p>A marketing platform for SEO companies to track their industry with data.</p>
+                        <a href="#">data.singularity.digital</a>
+                    </div>
+                    <div class="item-card fade-in">
+                        <div class="icon-wrapper">🐍</div>
+                        <h3>Python for SEO - Training Course</h3>
+                        <p>A Python course for SEOs to learn how to scrape and analyze data.</p>
+                        <a href="#">python-for-seo</a>
+                    </div>
+                    <div class="item-card fade-in">
+                        <div class="icon-wrapper">🔍</div>
+                        <h3>FAQ Generation - NLP & Data Engineering</h3>
+                        <p>SERP scraping and NLP to generate FAQ content for SEO companies.</p>
+                        <a href="#">faq-generation.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Services</h2>
+                    <p>I help businesses build reliable, scalable technical solutions that drive real results through LLM engineering, full-stack development, data engineering, and technical architecture. My expertise spans from harnessing cutting-edge AI and crafting robust applications to transforming raw data into actionable intelligence through powerful pipelines and visualizations.</p>
+                </div>
+                <div class="item-grid">
+                    <div class="item-card fade-in">
+                        <div class="icon-wrapper">📦</div>
+                        <h3>SaaS Applications</h3>
+                        <p>Full-stack SaaS development from idea to production. Including auth, payments, analytics, and automated testing.</p>
+                        <a href="#">Learn more ›</a>
+                    </div>
+                    <div class="item-card fade-in">
+                        <div class="icon-wrapper">✨</div>
+                        <h3>LLM Engineering</h3>
+                        <p>Building custom AI solutions and integrating LLMs into existing applications. Specializing in RAG, fine-tuning, and prompt engineering.</p>
+                        <a href="#">Learn more ›</a>
+                    </div>
+                    <div class="item-card fade-in">
+                        <div class="icon-wrapper">💻</div>
+                        <h3>React Development</h3>
+                        <p>Modern web applications built with Next.js, TypeScript, and Tailwind. Focus on performance, accessibility, and user experience.</p>
+                        <a href="#">Learn more ›</a>
+                    </div>
+                    <div class="item-card fade-in">
+                        <div class="icon-wrapper">⚡</div>
+                        <h3>Python Development</h3>
+                        <p>Building scalable backend services, data pipelines, and automation tools. Expert in Django, FastAPI, and data science libraries.</p>
+                        <a href="#">Learn more ›</a>
+                    </div>
+                    <div class="item-card fade-in">
+                        <div class="icon-wrapper">🧪</div>
+                        <h3>Data Engineering</h3>
+                        <p>End-to-end data pipeline development, ETL processes, and data warehouse solutions.</p>
+                        <a href="#">Learn more ›</a>
+                    </div>
+                    <div class="item-card fade-in">
+                        <div class="icon-wrapper">☁️</div>
+                        <h3>Web Scraping</h3>
+                        <p>Building reliable and scalable web scrapers with respect for robots.txt. Expert in BeautifulSoup, Scrapy, and Selenium.</p>
+                        <a href="#">Learn more ›</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="work">
+            <div class="container fade-in">
+                <div class="section-header" style="text-align: left;">
+                    <h2>Featured Work</h2>
+                    <p>Explore some of my favorite projects through interactive video previews. Click on any thumbnail to watch the full demo in a modal window.</p>
+                </div>
+                <div class="work-gallery">
+                    <div class="work-item">
+                        <img src="https://cdn.pixabay.com/video/2023/08/01/174086-850404739_tiny.jpg" alt="Project 1" data-video="https://cdn.pixabay.com/video/2023/08/01/174086-850404739_tiny.mp4">
+                        <span class="work-title">AI Dashboard</span>
+                    </div>
+                    <div class="work-item">
+                        <img src="https://cdn.pixabay.com/video/2023/01/31/148749-794599353_tiny.jpg" alt="Project 2" data-video="https://cdn.pixabay.com/video/2023/01/31/148749-794599353_tiny.mp4">
+                        <span class="work-title">Marketing Tool</span>
+                    </div>
+                    <div class="work-item">
+                        <img src="https://cdn.pixabay.com/video/2020/09/19/50326-460279129_tiny.jpg" alt="Project 3" data-video="https://cdn.pixabay.com/video/2020/09/19/50326-460279129_tiny.mp4">
+                        <span class="work-title">EdTech Platform</span>
+                    </div>
+                    <div class="work-item">
+                        <img src="https://cdn.pixabay.com/video/2023/05/12/162734-826309072_tiny.jpg" alt="Project 4" data-video="https://cdn.pixabay.com/video/2023/05/12/162734-826309072_tiny.mp4">
+                        <span class="work-title">SEO Analytics</span>
+                    </div>
+                    <div class="work-item">
+                        <img src="https://cdn.pixabay.com/video/2022/08/20/128562-741747697_tiny.jpg" alt="Project 5" data-video="https://cdn.pixabay.com/video/2022/08/20/128562-741747697_tiny.mp4">
+                        <span class="work-title">Automation Suite</span>
+                    </div>
+                    <div class="work-item">
+                        <img src="https://cdn.pixabay.com/video/2024/12/05/245143_tiny.jpg" alt="Project 6" data-video="https://cdn.pixabay.com/video/2024/12/05/245143_tiny.mp4">
+                        <span class="work-title">Data Pipeline</span>
+                    </div>
+                    <div class="work-item">
+                        <img src="https://cdn.pixabay.com/video/2020/03/11/33517-397143847_tiny.jpg" alt="Project 7" data-video="https://cdn.pixabay.com/video/2020/03/11/33517-397143847_tiny.mp4">
+                        <span class="work-title">Web Scraper</span>
+                    </div>
+                    <div class="work-item">
+                        <img src="https://cdn.pixabay.com/video/2016/09/21/5347-183629092_tiny.jpg" alt="Project 8" data-video="https://cdn.pixabay.com/video/2016/09/21/5347-183629092_tiny.mp4">
+                        <span class="work-title">AI Integration</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal for video preview -->
+            <div id="work-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;">
+                <button id="work-modal-close" style="position:absolute;top:2rem;right:2rem;font-size:2rem;background:none;border:none;color:#fff;cursor:pointer;">&times;</button>
+                <video id="work-modal-video" controls autoplay style="max-width:90vw;max-height:80vh;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.5);"></video>
+            </div>
+            <style>
+                .work-gallery {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+                    gap: 2rem;
+                    margin-top: 3rem;
+                }
+                .work-item {
+                    background: var(--surface-color);
+                    border-radius: 16px;
+                    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+                    overflow: hidden;
+                    cursor: pointer;
+                    transition: transform 0.2s;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .work-item:hover {
+                    transform: translateY(-4px) scale(1.03);
+                    box-shadow: 0 8px 32px rgba(106,63,244,0.10);
+                }
+                .work-item img {
+                    width: 100%;
+                    height: 160px;
+                    object-fit: cover;
+                    display: block;
+                }
+                .work-title {
+                    font-weight: 600;
+                    color: var(--primary-accent);
+                    margin: 1rem 0;
+                    font-size: 1.1rem;
+                }
+                @media (max-width: 768px) {
+                    .work-gallery {
+                        grid-template-columns: 1fr;
+                    }
+                    .work-item img {
+                        height: 180px;
+                    }
+                }
+            </style>
+            <script>
+                // Modal logic for video preview
+                document.addEventListener('DOMContentLoaded', function() {
+                    const gallery = document.querySelector('.work-gallery');
+                    const modal = document.getElementById('work-modal');
+                    const modalVideo = document.getElementById('work-modal-video');
+                    const modalClose = document.getElementById('work-modal-close');
+                    if (gallery) {
+                        gallery.addEventListener('click', function(e) {
+                            const item = e.target.closest('.work-item');
+                            if (item && item.querySelector('img')) {
+                                const videoSrc = item.querySelector('img').getAttribute('data-video');
+                                modalVideo.src = videoSrc;
+                                modal.style.display = 'flex';
+                                document.body.style.overflow = 'hidden';
+                            }
+                        });
+                    }
+                    modalClose.addEventListener('click', function() {
+                        modal.style.display = 'none';
+                        modalVideo.pause();
+                        modalVideo.src = '';
+                        document.body.style.overflow = '';
+                    });
+                    modal.addEventListener('click', function(e) {
+                        if (e.target === modal) {
+                            modal.style.display = 'none';
+                            modalVideo.pause();
+                            modalVideo.src = '';
+                            document.body.style.overflow = '';
+                        }
+                    });
+                });
+            </script>
+        </section>
+        
+        <section id="posts">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Latest Posts</h2>
+                    <p>I occasionally write about technology, entrepreneurship, and the future of AI. Here are a few of my latest thoughts.</p>
+                </div>
+                <div class="item-grid">
+                    <div class="item-card post-card fade-in">
+                        <div>
+                            <h3>Building an AI-Powered App with Next.js</h3>
+                            <p>A step-by-step guide to integrating the OpenAI API into a modern web application for powerful new features.</p>
+                        </div>
+                        <div class="post-meta">
+                           <span>August 15, 2025</span> &bull; <span>8 min read</span>
+                        </div>
+                    </div>
+                    <div class="item-card post-card fade-in">
+                        <div>
+                            <h3>The IndieHacker's Guide to Growth</h3>
+                            <p>Exploring unconventional marketing strategies that helped me scale my SaaS products without a big budget.</p>
+                        </div>
+                        <div class="post-meta">
+                           <span>July 28, 2025</span> &bull; <span>6 min read</span>
+                        </div>
+                    </div>
+                    <div class="item-card post-card fade-in">
+                        <div>
+                            <h3>Fine-Tuning vs. RAG: Which is Right for You?</h3>
+                            <p>A deep dive into the two most popular methods for customizing Large Language Models, with practical use cases.</p>
+                        </div>
+                        <div class="post-meta">
+                           <span>July 10, 2025</span> &bull; <span>10 min read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Find answers to common questions about my expertise, workflow, and services.</p>
+                </div>
+                <div class="faq-accordion">
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">What technologies do you specialize in?</button>
+                        <div class="faq-answer">
+                            <p>I primarily work with JavaScript/TypeScript (React, Next.js), Python (Django, FastAPI), and AI/ML frameworks like TensorFlow and PyTorch. I also have experience with AWS and GCP.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">How do you approach building a new application?</button>
+                        <div class="faq-answer">
+                            <p>I start by understanding the core problem and user needs, then design scalable architecture, select the right tech stack, and iterate quickly with feedback.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">Can you help with AI integration into existing systems?</button>
+                        <div class="faq-answer">
+                            <p>Absolutely! I have experience integrating LLMs and other AI models into existing applications to enhance functionality and automate tasks.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item fade-in">
+                        <button class="faq-question">What is your availability for new projects?</button>
+                        <div class="faq-answer">
+                            <p>I take on a limited number of projects to ensure quality. Please reach out via the contact section to discuss your project and check my current availability.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .faq-accordion {
+                    margin-top: 2rem;
+                }
+                .faq-item {
+                    background: var(--surface-color);
+                    border-radius: 12px;
+                    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+                    margin-bottom: 1rem;
+                    overflow: hidden;
+                    transition: box-shadow 0.2s;
+                }
+                .faq-item.open {
+                    box-shadow: 0 4px 24px rgba(106,63,244,0.10);
+                }
+                .faq-question {
+                    width: 100%;
+                    text-align: left;
+                    background: none;
+                    border: none;
+                    outline: none;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    color: var(--primary-accent);
+                    padding: 1.5rem 1.2rem 1rem 1.2rem;
+                    cursor: pointer;
+                    transition: background 0.2s;
+                }
+                .faq-question:hover {
+                    background: rgba(106,63,244,0.05);
+                }
+                .faq-answer {
+                    max-height: 0;
+                    overflow: hidden;
+                    padding: 0 1.2rem;
+                    color: #555;
+                    background: none;
+                    transition: max-height 0.3s ease;
+                }
+                .faq-item.open .faq-answer {
+                    max-height: 200px;
+                    padding-bottom: 1.2rem;
+                    background: rgba(106,63,244,0.03);
+                }
+                @media (max-width: 768px) {
+                    .faq-question {
+                        font-size: 1rem;
+                        padding: 1.2rem 1rem 0.8rem 1rem;
+                    }
+                    .faq-answer {
+                        padding: 0 1rem;
+                    }
+                }
+            </style>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.querySelectorAll('.faq-question').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const item = btn.parentElement;
+                            item.classList.toggle('open');
+                            document.querySelectorAll('.faq-item').forEach(other => {
+                                if (other !== item) other.classList.remove('open');
+                            });
+                        });
+                    });
+                });
+            </script>
+        </section>
+        <section id="trusted-by" style="padding: 4rem 0;">
+            <div class="container">
+            <div class="trusted-by fade-in">
+                <p class="trusted-by-text" style="text-align: center; font-size: 1.25rem; margin-bottom: 2.5rem;">
+                <span class="trusted-by-title" style="font-weight: 900; color: #995454; letter-spacing: 1.5px; font-size: 1.3em; text-shadow: 0 2px 8px rgba(106,63,244,0.12);">
+                    Trusted by
+                </span>
+                <span class="trusted-by-desc">
+                    global brands & innovative startups
+                </span>
+                <span class="trusted-by-badge" style="display: inline-block; background: #fff; color: #6A3FF4; font-weight: 800; border-radius: 16px; padding: 0.4em 1.2em; font-size: 1em; margin-left: 1em; border: 1px solid #fff; box-shadow: 0 2px 8px rgba(106,63,244,0.10);">
+                    AI-first
+                </span>
+                </p>
+                <div class="logos-marquee" style="padding: 0.5rem 0;">
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://gemini.google.com/app" target="_blank"><img src="https://img.icons8.com/?size=48&id=eoxMN35Z6JKg&format=png" alt="Gemini" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://copilot.microsoft.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=PxQoyT1s0uFh&format=png" alt="Copilot" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://chatgpt.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=ka3InxFU3QZa&format=png" alt="ChatGPT" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://chat.deepseek.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=YWOidjGxCpFW&format=png" alt="Deepseek" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.figma.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=zfHRZ6i1Wg0U&format=png" alt="Figma" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.canva.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=iWw83PVcBpLw&format=png" alt="Canva" style="height:45px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://github.com/" target="_blank"><img src="https://img.icons8.com/?size=64&id=3tC9EQumUAuq&format=png" alt="GitHub" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://aistudio.google.com/gen-media" target="_blank"><img src="https://aistudio.baidu.com/favicon.ico" alt="Aistudio" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://google.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=17949&format=png" alt="Google" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://cloud.google.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=WHRLQdbEXQ16&format=png" alt="Google Cloud" style="height:45px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.ibm.com/us-en" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.atlassian.com/" target="_blank"><img src="https://img.icons8.com/?size=80&id=RduYmqw5H7xm&format=png" alt="Atlassian" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://slack.com/" target="_blank"><img src="https://img.icons8.com/?size=80&id=4n94I13nDTyw&format=png" alt="Slack" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.linkedin.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=13930&format=png" alt="LinkedIn" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.whatsapp.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=16713&format=png" alt="whatsapp" style="height:45px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.microsoft.com/windows" target="_blank"><img src="https://img.icons8.com/?size=48&id=108792&format=png" alt="windows" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.example.com/facebook" target="_blank"><img src="https://img.icons8.com/?size=48&id=118497&format=png" alt="Facebook" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.stackoverflow.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Stack_Overflow_logo.svg" alt="Stack Overflow" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.instagram.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=Xy10Jcu1L2Su&format=png" alt="Instagram" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://telegram.org/" target="_blank"><img src="https://img.icons8.com/?size=48&id=63306&format=png" alt="Telegram" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.gmail.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=P7UIlhbpWzZm&format=png" alt="Gmail" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.microsoft.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=22989&format=png" alt="Microsoft" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://play.google.com/store/games?hl=en" target="_blank"><img src="https://img.icons8.com/?size=48&id=L1ws9zn2uD01&format=png" alt="Playstore" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.chrome.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=ejub91zEY6Sl&format=png" alt="Chrome" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.android.com/" target="_blank"><img src="https://img.icons8.com/?size=48&id=17836&format=png" alt="Android" style="height:40px;"></a>
+                </div>
+                <div class="logo-item" style="margin: 0 32px;">
+                    <a href="https://www.google.com/maps" target="_blank"><img src="https://img.icons8.com/?size=48&id=32215&format=png" alt="Maps" style="height:40px;"></a>
+                </div>
+                </div>
+            <style>
+            #trust .trusted-by-title {
+                font-family: 'Manrope', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                letter-spacing: 2px;
+            }
+            #trust .trusted-by-badge {
+                background: #fff;
+                color: #6A3FF4;
+                font-weight: 800;
+                border-radius: 16px;
+                padding: 0.4em 1.2em;
+                font-size: 1em;
+                margin-left: 1em;
+                border: 1px solid #fff;
+                box-shadow: 0 2px 8px rgba(106,63,244,0.10);
+            }
+            #trust .logos-marquee {
+                white-space: nowrap;
+                display: flex;
+                align-items: center;
+                animation: marquee 30s linear infinite;
+                gap: 0;
+            }
+            #trust .logo-item {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 32px;
+                filter: grayscale(1) opacity(0.7);
+                transition: filter 0.3s, transform 0.2s;
+            }
+            #trust .logo-item:hover {
+                filter: grayscale(0) opacity(1);
+                transform: scale(1.08);
+            }
+            #trust .logo-item img {
+                height: 32px;
+                width: auto;
+                transition: box-shadow 0.2s;
+            }
+            @media (max-width: 768px) {
+                #trust {
+                padding: 2.5rem 0;
+                border-radius: 16px;
+                margin: 2rem 0;
+                }
+                #trust .trusted-by-text {
+                font-size: 1.05rem;
+                }
+                #trust .logo-item {
+                margin: 0 16px;
+                }
+                #trust .logo-item img {
+                height: 24px;
+                }
+            }
+            </style>
+        </section>
+        
+        <section id="contact">
+            <div class="container fade-in">
+                <h2>Let's build something great together.</h2>
+                <p>I'm currently available for freelance projects and consulting engagements. If you have a project in mind or just want to connect, feel free to reach out.</p>
+                <a href="https://wa.me/8801308839759" class="btn btn-primary">Say Hello</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col-1">
+                    <h4 style="align-items:center;">🐱‍💻
+                        <span style="background:var(--primary-accent);color:#fff;font-size:0.8em;padding:0.2em 0.7em;border-radius:12px;margin-left:0.7em;box-shadow:0 2px 8px rgba(106,63,244,0.10);font-weight:700;">Jahid Hasan</span>
+                    </h4>
+                    <p style="font-size:16px; line-height:1.7; color:#444; font-family:'Segoe UI', Tahoma, sans-serif; max-width:700px; margin:auto; text-align:left;">
+                        I am an <strong>LLM Engineer</strong> and <strong>Bangladeshi hacker</strong> passionate about building 
+                        the future of <span style="color:#2c3e50; font-weight:bold;">AI-powered applications</span>. 
+                        With a background in programming, web development, and applied machine learning, 
+                        I focus on creating tools that blend practicality with innovation. 
+                        Beyond coding, I value <em>craftsmanship, simplicity, and user-first design</em>. 
+                        Every project I build is <span style="color:#e74c3c;">crafted with care in Bangladesh</span>, 
+                        with the vision of contributing to a more intelligent, accessible digital future.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Web Pages</h4>
+                    <ul>
+                        <li><a href="https://jahidads.github.io/Portfolio/">Portfolio Website</a></li>
+                        <li><a href="https://jahidads.github.io/DesignNest.co/">Designer Portfolio</a></li>
+                        <li><a href="https://jahidads.github.io/Cyber-Security/">Cyber Security</a></li>
+                        <li><a href="https://jahidads.github.io/Developer-portfolio/">Developer Portfolio</a></li>
+                        <li><a href="https://jahidads.github.io/Blog/">Web Blog site</a></li>
+                        <li><a href="https://jahidads.github.io/CyberShield/">CyberShield Protection</a></li>
+                        <li><a href="https://jahidads.github.io/Codiax/">Jahid | Codiax</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Other Links</h4>
+                     <ul>
+                        <li><a href="https://jahidads.github.io/Webinars/">online Webners</a></li>
+                        <li><a href="https://jahidads.github.io/DevTools/">online ToolHub</a></li>
+                        <li><a href="https://jahidads.github.io/3D-Model/">3D Solar System</a></li>
+                        <li><a href="https://jahidads.github.io/BrandCraft/">BrandCraft</a></li>
+                        <li><a href="https://jahidads.github.io/NinjaTech/">Ninja Tech</a></li>
+                        <li><a href="https://jahidads.github.io/PresentPro/">Presentpro</a></li>
+                        <li><a href="https://jahidads.github.io/PixelPatch/">PixelPath</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal Policies</h4>
+                    <ul>
+                        <li><a href="https://jahidads.github.io/PrivacyPolice/">Privacy Policy</a></li>
+                        <li><a href="https://jahidads.github.io/ReturnPolicy/">Return Policy</a></li>
+                        <li><a href="https://jahidads.github.io/Warranty-Details/">Warranty-Details</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Pro Services</h4>
+                    <ul>
+                        <li><a href="https://jahidads.github.io/EasyPay/">Online payments</a></li>
+                        <li><a href="https://jahidads.github.io/gmailtricks.bd/">GmailTricks.bd</a></li>
+                        <li><a href="https://jahidads.github.io/OpeShop/">Online Shopping</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Online Services</h4>
+                    <ul>
+                        <li><a href="https://jahidads.github.io/SecureMail/">SecureMail Service</a></li>
+                        <li><a href="https://jahidads.github.io/Return-portal/">Return Portal</a></li>
+                        <li><a href="https://jahidads.github.io/WorkHub/">Online Banking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="mailto:jahidads@yahoo.com">Email Me</a></li>
+                        <li><a href="tel:+8801308839759">Call Me</a></li>
+                        <li><a href="#home">Back to Top ↑</a></li>
+                    </ul>
+                </div>
+            </div>
+            <style>
+                .main-footer {
+                    background: var(--surface-color);
+                    color: #444;
+                    padding: 3rem 0 1rem;
+                    font-family: 'Segoe UI', Tahoma, sans-serif;
+                    box-shadow: 0 -2px 12px rgba(0,0,0,0.05);
+                }
+                .main-footer .footer-col h4 {
+                    color: var(--primary-accent);
+                    letter-spacing: 0.5px;
+                    margin-bottom: 1em;
+                }
+                .main-footer .footer-col ul li a {
+                    transition: color 0.2s, background 0.2s;
+                    border-radius: 8px;
+                    padding: 0.2em 0.5em;
+                }
+                .main-footer .footer-col ul li a:hover {
+                    color: #fff;
+                    background: var(--primary-accent);
+                }
+                .main-footer .footer-col ul {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                }
+                .main-footer .footer-col ul li {
+                    margin-bottom: 0.5em;
+                }
+                @media (max-width: 992px) {
+                    .main-footer .footer-grid {
+                        grid-template-columns: 1fr 1fr;
+                        padding: 2rem 1rem;
+                    }
+                }
+                @media (max-width: 768px) {
+                    .main-footer .footer-grid {
+                        grid-template-columns: 1fr;
+                        padding: 1.5rem 0.5rem;
+                    }
+                }
+            </style>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jahid Hasan. All Rights Reserved.</p>
+                <div class="footer-socials">
+                    <a href="https://facebook.com/jahidads1" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.405 24 24 23.408 24 22.674V1.326C24 .592 23.405 0 22.675 0"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/jahidads" aria-label="Instagram">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8A3.6 3.6 0 0 0 20 16.4V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.pinterest.com/jahidads" aria-label="Pinterest">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 4.13 2.53 7.66 6.13 9.07-.08-.77-.15-1.95.03-2.79.17-.74 1.13-4.72 1.13-4.72s-.29-.58-.29-1.44c0-1.35.78-2.36 1.75-2.36.82 0 1.22.62 1.22 1.36 0 .83-.53 2.07-.8 3.22-.23.97.49 1.76 1.45 1.76 1.74 0 3.07-1.84 3.07-4.5 0-2.36-1.7-4.01-4.13-4.01-2.82 0-4.48 2.12-4.48 4.31 0 .86.33 1.78.74 2.28.08.1.09.19.07.29-.08.32-.25 1.02-.28 1.16-.04.17-.13.21-.3.13-1.12-.52-1.82-2.15-1.82-3.46 0-2.82 2.38-6.2 7.09-6.2 3.79 0 6.29 2.74 6.29 5.68 0 3.91-2.17 6.82-5.39 6.82-1.08 0-2.09-.59-2.44-1.26l-.66 2.52c-.2.76-.6 1.71-.89 2.29.67.21 1.38.33 2.12.33 5.5 0 9.96-4.46 9.96-9.96 0-5.5-4.46-9.96-9.96-9.96z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            
+            // --- Theme Toggler ---
+            const themeToggle = document.querySelector('.theme-toggle');
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+            }
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('light-theme');
+                if (body.classList.contains('light-theme')) {
+                    localStorage.setItem('theme', 'light-theme');
+                } else {
+                    localStorage.removeItem('theme');
+                }
+            });
+
+            // --- Mobile Navigation ---
+            const navOpenBtn = document.querySelector('.nav-open-btn');
+            const navCloseBtn = document.querySelector('.nav-close-btn');
+            const navLinks = document.querySelectorAll('.main-nav .nav-link');
+            
+            const openNav = () => body.classList.add('mobile-nav-open');
+            const closeNav = () => body.classList.remove('mobile-nav-open');
+            
+            navOpenBtn.addEventListener('click', openNav);
+            navCloseBtn.addEventListener('click', closeNav);
+            navLinks.forEach(link => link.addEventListener('click', closeNav));
+
+            // --- Scroll Animations ---
+            const animatedElements = document.querySelectorAll('.fade-in');
+            const animationObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => animationObserver.observe(el));
+            
+            // --- Active Nav Link on Scroll (Desktop) ---
+            const sections = document.querySelectorAll('section');
+            const desktopNavLinks = document.querySelectorAll('.main-header .main-nav a');
+
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        desktopNavLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                        });
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' });
+
+            sections.forEach(section => navObserver.observe(section));
+        });
+    </script>
+</body>
+</html>
